@@ -1,67 +1,34 @@
-// Snack2
-// Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
-// Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
-// Generare numeri random al posto degli 0 nelle proprietà:
-// Punti fatti e falli subiti.
-// Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+// Snack 2
+// Dato un elenco degli studenti di una facoltà, con il totale dei loro voti
+let students = [
+    { name: 'Marco', id: 213, grades: 78 },
+    { name: 'Paola', id: 110, grades: 96 },
+    { name: 'Andrea', id: 250, grades: 48 },
+    { name: 'Gaia', id: 145, grades: 74 },
+    { name: 'Luigi', id: 196, grades: 68 },
+    { name: 'Piero', id: 102, grades: 50 },
+    { name: 'Francesca', id: 120, grades: 84 },
+  ];
+// 1- Dobbiamo creare delle targhe con il loro nome in maiuscolo. Ci serve quindi un nuovo array di stringhe.
+//  Ogni elemento del nuovo array sarà il nome dello studente ma con tutte le lettere maiuscole.
+// 2-  Dobbiamo creare un nuovo array con gli studenti che hanno un totale di voti superiore a 70
+// 3-  Dobbiamo creare un nuovo array di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
 
-// Creo un array di squadre con nome e pti e falli a 0
-const teamsArray = [
-    {
-        nome: 'Juve',
-        pti: 0,
-        falli: 0
-    },
-    {
-        nome: 'Milan',
-        pti: 0,
-        falli: 0
-    },
-    {
-        nome: 'Inter',
-        pti: 0,
-        falli: 0
-    },
-    {
-        nome: 'Napoli',
-        pti: 0,
-        falli: 0
-    }
-];
+const targheArray = students.map((element) => {
+    // console.log(element.name);
+    return element.name.toUpperCase();
+});
 
-// Creo un nuovo array 
-const teamsFoulArray = [];
+console.log(targheArray);
 
-// Per ogni squadra nell' array genero un numero random per i pti e i falli subiti
-for (i = 0; i < teamsArray.length; i++) {
-    let thisTeam = teamsArray[i];
+const studentsOver70 = students.filter((element) => {
+    return element.grades > 70;
+});
 
-    thisTeam.pti = getRndInteger(0, 120);
-    thisTeam.falli = getRndInteger(0, 500);
+console.log(studentsOver70);
 
-    console.log(thisTeam);
+const students70and120 = students.filter((element) => {
+    return element.grades > 70 && element.id > 120;
+});
 
-    // Destrutturo ogni object del vecchio array
-    const {nome, falli} = thisTeam;
-    const newTeam = {
-        nome,
-        falli
-    };
-
-    // Pusho ogni nuovo object nel nuovo array 
-    teamsFoulArray.push(newTeam);
-
-}
-
-console.log(teamsFoulArray);
-
-
-
-
-
-
-
-// FUNCTIONS 
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+console.log(students70and120);
