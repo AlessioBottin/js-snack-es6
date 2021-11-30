@@ -10,11 +10,15 @@ const myArray = ['Michele', 'Fabio', 'Roberto', 'Giovanni', 'Simone', 'Chiara'];
 newArray = [],
 
 myArray.forEach((element, index, array) => {
-    // (index > 2 && index < 4) ? newArray.push(element);
+    // (index > 2 && index < 4) ? newArray.push(element) : null;            senza ": null;" NON FUNZIONA L' OPERATORE TERNARIO FUNZIONA SOLO COME UNA IF ELSE
 
     if ( index > 2 && index < 4) {
         newArray.push(element);
     }
 });
+
+// const newArray = myArray.filter((element) => {
+//     return index > 2 && index < 4;
+// });
 
 console.log(newArray);
